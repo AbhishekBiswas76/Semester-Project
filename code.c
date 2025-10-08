@@ -2,305 +2,312 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Node structure for the dancing links matrix
+// Node structure for the Dancing Links matrix
 typedef struct Node {
-    struct Node *left, *right, *up, *down, *column;
-    int row_id;     // Row identifier
-    int col_id;     // Column identifier
+    struct Node *left, *right, *up, *down; // Links for the doubly-linked list
+    struct Node *column; // Pointer to column header
+    int row_id; // Row identifier
+    int col_id; // Column identifier
+    int node_count; // Number of nodes in column (for column header)
 } Node;
 
-// Column header structure
+// Structure to hold the DLX solver state
 typedef struct {
-    Node node;      // Embedded node for linking
-    int size;       // Number of 1s in this column
-    int id;         // Column identifier
-} Column;
+    Node *root; // Root of the circular doubly-linked list
+    Node **columns; // Array of column headers
+    int num_cols; // Number of columns
+    int *solution; // Array to store the solution (row IDs)
+    int solution_size; // Current size of the solution
+    int max_solution_size; // Maximum size of the solution array
+    int num_rows; // Current number of rows added
+} DLX;
 
-// Function to initialize the matrix
-Node* create_matrix(int cols) {
-    Node* header = (Node*)malloc(sizeof(Node));
-    header->left = header->right = header->up = header->down = header;
-    header->row_id = -1;
-    header->col_id = -1;
-    
-    // Create column headers
-    Node* prev = header;
-    for (int i = 0; i < cols; i++) {
-        Column* col = (Column*)malloc(sizeof(Column));
-        col->node.left = prev;
-        col->node.right = header;
-        col->node.up = &col->node;
-        col->node.down = &col->node;
-        col->node.column = &col->node;
-        col->size = 0;
-        col->id = i;
-        
-        prev->right = &col->node;
-        header->left = &col->node;
-        prev = &col->node;
-    }
-    return header;
+// Initialize a new node
+Node* create_node(int row_id, int col_id) {
+    Node *node = (Node*)malloc(sizeof(Node));
+    node->left = node->right = node->up = node->down = node;
+    node->column = NULL;
+    node->row_id = row_id;
+    node->col_id = col_id;
+    node->node_count = 0;
+    return node;
 }
 
-// Function to add a row to the matrix
-void add_row(Node* header, int row_id, int* cols, int num_cols) {
-    Node* first = NULL;
-    Node* prev = NULL;
-    
+// Initialize the DLX solver
+DLX* init_dlx(int num_cols, int max_rows) {
+    DLX *dlx = (DLX*)malloc(sizeof(DLX));
+    dlx->num_cols = num_cols;
+    dlx->root = create_node(-1, -1); // Root node
+    dlx->columns = (Node**)malloc(num_cols * sizeof(Node*));
+    dlx->solution = (int*)malloc(max_rows * sizeof(int));
+    dlx->solution_size = 0;
+    dlx->max_solution_size = max_rows;
+    dlx->num_rows = 0;
+
+    // Initialize column headers
     for (int i = 0; i < num_cols; i++) {
-        // Find the column header
-        Node* col = header->right;
-        while (col != header && col->col_id != cols[i]) {
-            col = col->right;
-        }
-        if (col == header) continue; // Column not found
-        
-        // Create new node
-        Node* node = (Node*)malloc(sizeof(Node));
-        node->row_id = row_id;
-        node->col_id = cols[i];
-        node->column = col;
-        
-        // Link vertically
-        node->down = col->down;
-        node->up = col;
-        col->down->up = node;
-        col->up = node;
-        
-        // Link horizontally
-        if (first == NULL) {
-            first = node;
-            node->left = node;
-            node->right = node;
-        } else {
-            node->right = first;
-            node->left = first->left;
-            first->left->right = node;
-            first->left = node;
-        }
-        
-        ((Column*)col)->size++;
+        dlx->columns[i] = create_node(-1, i);
+        dlx->columns[i]->node_count = 0;
+        dlx->columns[i]->column = dlx->columns[i];
+        // Link column headers to root
+        dlx->columns[i]->right = dlx->root;
+        dlx->columns[i]->left = dlx->root->left;
+        dlx->root->left->right = dlx->columns[i];
+        dlx->root->left = dlx->columns[i];
     }
+    return dlx;
 }
 
-// Cover a column
-void cover(Node* col) {
+// Add a row to the DLX matrix (sparse matrix representation)
+void add_row(DLX *dlx, int row_id, int *cols, int num_ones) {
+    Node *first_node = NULL;
+    for (int i = 0; i < num_ones; i++) {
+        int col_id = cols[i];
+        if (col_id < 0 || col_id >= dlx->num_cols) continue; // Validate column index
+        Node *node = create_node(row_id, col_id);
+        node->column = dlx->columns[col_id];
+
+        // Link vertically
+        node->down = dlx->columns[col_id];
+        node->up = dlx->columns[col_id]->up;
+        dlx->columns[col_id]->up->down = node;
+        dlx->columns[col_id]->up = node;
+        dlx->columns[col_id]->node_count++;
+
+        // Link horizontally
+        if (first_node == NULL) {
+            first_node = node;
+        } else {
+            node->right = first_node;
+            node->left = first_node->left;
+            first_node->left->right = node;
+            first_node->left = node;
+        }
+    }
+    dlx->num_rows++;
+}
+
+// Cover a column (remove it from the matrix)
+void cover_column(Node *col) {
+    // Remove column header from header list
     col->right->left = col->left;
     col->left->right = col->right;
-    
-    for (Node* i = col->down; i != col; i = i->down) {
-        for (Node* j = i->right; j != i; j = j->right) {
-            j->down->up = j->up;
-            j->up->down = j->down;
-            ((Column*)j->column)->size--;
+
+    // Remove all rows in this column
+    for (Node *row = col->down; row != col; row = row->down) {
+        for (Node *node = row->right; node != row; node = node->right) {
+            node->up->down = node->down;
+            node->down->up = node->up;
+            node->column->node_count--;
         }
     }
 }
 
-// Uncover a column
-void uncover(Node* col) {
-    for (Node* i = col->up; i != col; i = i->up) {
-        for (Node* j = i->left; j != i; j = j->left) {
-            ((Column*)j->column)->size++;
-            j->down->up = j;
-            j->up->down = j;
+// Uncover a column (restore it to the matrix)
+void uncover_column(Node *col) {
+    // Restore all rows in this column
+    for (Node *row = col->up; row != col; row = row->up) {
+        for (Node *node = row->left; node != row; node = node->left) {
+            node->up->down = node;
+            node->down->up = node;
+            node->column->node_count++;
         }
     }
+    // Restore column header
     col->right->left = col;
     col->left->right = col;
 }
 
-// Dancing Links algorithm
-void search(Node* header, int* solution, int k, int* solutions, int* num_solutions, int max_solutions) {
-    if (*num_solutions >= max_solutions) return;
-    
-    if (header->right == header) {
-        // Solution found
-        for (int i = 0; i < k; i++) {
-            solutions[(*num_solutions) * max_solutions + i] = solution[i];
-        }
-        (*num_solutions)++;
-        return;
-    }
-    
-    // Choose column with minimum number of 1s
-    Node* col = header->right;
-    Node* min_col = col;
-    int min_size = ((Column*)col)->size;
-    
-    for (Node* c = col->right; c != header; c = c->right) {
-        if (((Column*)c)->size < min_size) {
-            min_col = c;
-            min_size = ((Column*)c)->size;
+// Choose the column with the fewest nodes (heuristic for efficiency)
+Node* choose_column(DLX *dlx) {
+    Node *min_col = NULL;
+    int min_count = __INT_MAX__;
+
+    for (Node *col = dlx->root->right; col != dlx->root; col = col->right) {
+        if (col->node_count < min_count) {
+            min_count = col->node_count;
+            min_col = col;
         }
     }
-    
-    if (min_size == 0) return; // No solution possible
-    
-    cover(min_col);
-    
-    for (Node* r = min_col->down; r != min_col; r = r->down) {
-        solution[k] = r->row_id;
-        
-        // Cover columns
-        for (Node* j = r->right; j != r; j = j->right) {
-            cover(j->column);
-        }
-        
-        search(header, solution, k + 1, solutions, num_solutions, max_solutions);
-        
-        // Uncover columns
-        for (Node* j = r->left; j != r; j = j->left) {
-            uncover(j->column);
-        }
-    }
-    
-    uncover(min_col);
+    return min_col;
 }
 
-// Display the matrix
-void display_matrix(Node* header) {
-    printf("\nCurrent Matrix (Column sizes):\n");
-    for (Node* col = header->right; col != header; col = col->right) {
-        printf("Col %d: %d nodes\n", col->col_id, ((Column*)col)->size);
+// Recursive search for exact cover solution
+int search(DLX *dlx, int (*callback)(DLX*, void*), void *context) {
+    if (dlx->root->right == dlx->root) {
+        // Solution found, invoke callback
+        if (callback) {
+            return callback(dlx, context);
+        }
+        return 1; // Solution found
+    }
+
+    Node *col = choose_column(dlx);
+    if (col == NULL || col->node_count == 0) return 0; // No solution possible
+
+    cover_column(col);
+
+    for (Node *row = col->down; row != col; row = row->down) {
+        dlx->solution[dlx->solution_size++] = row->row_id;
+
+        // Cover all columns in this row
+        for (Node *node = row->right; node != row; node = node->right) {
+            cover_column(node->column);
+        }
+
+        // Recurse
+        if (search(dlx, callback, context)) return 1;
+
+        // Backtrack: uncover columns in reverse order
+        for (Node *node = row->left; node != row; node = node->left) {
+            uncover_column(node->column);
+        }
+
+        dlx->solution_size--;
+    }
+
+    uncover_column(col);
+    return 0; // No solution found
+}
+
+// Callback function to print solution (example)
+int print_solution(DLX *dlx, void *context) {
+    printf("Solution found: ");
+    for (int i = 0; i < dlx->solution_size; i++) {
+        printf("%d ", dlx->solution[i]);
     }
     printf("\n");
+    return 1; // Continue searching for more solutions if desired (but here we stop at first)
 }
 
-// Free the matrix memory
-void free_matrix(Node* header) {
-    Node* col = header->right;
-    while (col != header) {
-        Node* next_col = col->right;
-        Node* row = col->down;
-        while (row != col) {
-            Node* next_row = row->down;
-            free(row);
-            row = next_row;
+// Free the DLX structure and all nodes
+void free_dlx(DLX *dlx) {
+    // Free all nodes in each column
+    for (int i = 0; i < dlx->num_cols; i++) {
+        Node *col = dlx->columns[i];
+        Node *node = col->down;
+        while (node != col) {
+            Node *next = node->down;
+            free(node);
+            node = next;
         }
         free(col);
-        col = next_col;
     }
-    free(header);
+    free(dlx->columns);
+    free(dlx->solution);
+    free(dlx->root);
+    free(dlx);
 }
 
+// Function to print the current matrix (for debugging)
+void print_matrix(DLX *dlx) {
+    printf("Current DLX Matrix (sparse representation):\n");
+    for (int i = 0; i < dlx->num_cols; i++) {
+        printf("Column %d (count: %d): ", i, dlx->columns[i]->node_count);
+        for (Node *node = dlx->columns[i]->down; node != dlx->columns[i]; node = node->down) {
+            printf("Row %d ", node->row_id);
+        }
+        printf("\n");
+    }
+}
+
+// Interactive function to add a row
+void interactive_add_row(DLX *dlx) {
+    int row_id = dlx->num_rows; // Auto-increment row ID
+    printf("Enter the number of 1's in this row: ");
+    int num_ones;
+    scanf("%d", &num_ones);
+    if (num_ones <= 0 || num_ones > dlx->num_cols) {
+        printf("Invalid number of 1's.\n");
+        return;
+    }
+    int *cols = (int*)malloc(num_ones * sizeof(int));
+    printf("Enter the column indices (0 to %d) where 1's are: ", dlx->num_cols - 1);
+    for (int i = 0; i < num_ones; i++) {
+        scanf("%d", &cols[i]);
+    }
+    add_row(dlx, row_id, cols, num_ones);
+    free(cols);
+    printf("Row %d added.\n", row_id);
+}
+
+// Main function with switch-case menu
 int main() {
-    Node* header = NULL;
-    int cols = 0, row_id = 0;
-    int* solution = NULL;
-    int* solutions = NULL;
-    int num_solutions = 0;
-    int max_solutions = 100;
-    int max_rows = 100;
-    
-    while (1) {
-        printf("\nDancing Links Operations:\n");
-        printf("1. Create Matrix\n");
+    DLX *dlx = NULL;
+    int choice;
+    int num_cols = 0;
+    int max_rows = 100; // Default max rows for solution array
+
+    do {
+        printf("\nDancing Links Menu:\n");
+        printf("1. Initialize DLX (set number of columns)\n");
         printf("2. Add Row\n");
-        printf("3. Display Matrix\n");
-        printf("4. Run Dancing Links Algorithm\n");
-        printf("5. Display Solutions\n");
-        printf("6. Exit\n");
-        printf("Enter choice: ");
-        
-        int choice;
+        printf("3. Print Matrix\n");
+        printf("4. Solve Exact Cover\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
         scanf("%d", &choice);
-        
+
         switch (choice) {
-            case 1: // Create Matrix
-                if (header) {
-                    free_matrix(header);
-                    free(solution);
-                    free(solutions);
+            case 1:
+                if (dlx != NULL) {
+                    free_dlx(dlx);
+                    dlx = NULL;
                 }
                 printf("Enter number of columns: ");
-                scanf("%d", &cols);
-                header = create_matrix(cols);
-                solution = (int*)malloc(max_rows * sizeof(int));
-                solutions = (int*)malloc(max_solutions * max_rows * sizeof(int));
-                num_solutions = 0;
-                row_id = 0;
-                printf("Matrix created with %d columns\n", cols);
-                break;
-                
-            case 2: // Add Row
-                if (!header) {
-                    printf("Create matrix first!\n");
-                    break;
-                }
-                printf("Enter number of 1s in row %d: ", row_id);
-                int num_cols;
                 scanf("%d", &num_cols);
-                if (num_cols > cols) {
-                    printf("Invalid: Too many columns\n");
+                if (num_cols <= 0) {
+                    printf("Invalid number of columns.\n");
                     break;
                 }
-                int* row_cols = (int*)malloc(num_cols * sizeof(int));
-                printf("Enter column indices (0 to %d): ", cols-1);
-                for (int i = 0; i < num_cols; i++) {
-                    scanf("%d", &row_cols[i]);
-                    if (row_cols[i] >= cols) {
-                        printf("Invalid column index\n");
-                        free(row_cols);
-                        break;
-                    }
-                }
-                add_row(header, row_id++, row_cols, num_cols);
-                free(row_cols);
-                printf("Row added\n");
+                printf("Enter maximum expected rows (for solution buffer): ");
+                scanf("%d", &max_rows);
+                dlx = init_dlx(num_cols, max_rows);
+                printf("DLX initialized with %d columns.\n", num_cols);
                 break;
-                
-            case 3: // Display Matrix
-                if (!header) {
-                    printf("Create matrix first!\n");
+
+            case 2:
+                if (dlx == NULL) {
+                    printf("Please initialize DLX first.\n");
                     break;
                 }
-                display_matrix(header);
+                interactive_add_row(dlx);
                 break;
-                
-            case 4: // Run Algorithm
-                if (!header) {
-                    printf("Create matrix first!\n");
+
+            case 3:
+                if (dlx == NULL) {
+                    printf("Please initialize DLX first.\n");
                     break;
                 }
-                num_solutions = 0;
-                search(header, solution, 0, solutions, &num_solutions, max_solutions);
-                printf("Algorithm completed. Found %d solutions\n", num_solutions);
+                print_matrix(dlx);
                 break;
-                
-            case 5: // Display Solutions
-                if (!header) {
-                    printf("Create matrix first!\n");
+
+            case 4:
+                if (dlx == NULL) {
+                    printf("Please initialize DLX first.\n");
                     break;
                 }
-                if (num_solutions == 0) {
-                    printf("No solutions found or algorithm not run\n");
+                if (dlx->num_rows == 0) {
+                    printf("No rows added yet.\n");
                     break;
                 }
-                printf("\nSolutions found (%d):\n", num_solutions);
-                for (int i = 0; i < num_solutions; i++) {
-                    printf("Solution %d: Rows [", i + 1);
-                    for (int j = 0; j < max_rows && solutions[i * max_rows + j] != 0; j++) {
-                        printf("%d", solutions[i * max_rows + j]);
-                        if (solutions[i * max_rows + j + 1] != 0) printf(", ");
-                    }
-                    printf("]\n");
+                printf("Solving...\n");
+                if (!search(dlx, print_solution, NULL)) {
+                    printf("No solution exists.\n");
                 }
                 break;
-                
-            case 6: // Exit
-                if (header) {
-                    free_matrix(header);
-                    free(solution);
-                    free(solutions);
-                }
+
+            case 5:
                 printf("Exiting...\n");
-                return 0;
-                
+                if (dlx != NULL) {
+                    free_dlx(dlx);
+                }
+                break;
+
             default:
-                printf("Invalid choice\n");
+                printf("Invalid choice. Please try again.\n");
         }
-    }
-    
+    } while (choice != 5);
+
     return 0;
 }
