@@ -77,7 +77,7 @@ Dancing Links is a technique to add or delete a node from a circular doubly link
 
 ## Program
 
-It is the implementation of algorithm in a programming language
+It is the implementation of algorithm in a programming language.
 
 This project uses Java programming language for its implementation. Java is a programming language that is used globally to develop various application software.
 
