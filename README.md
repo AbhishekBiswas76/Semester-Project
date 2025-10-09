@@ -85,7 +85,7 @@ This project uses Java programming language for its implementation. Java is a pr
 
 ## Repository
 
-The code base and this documentation is available on a [Github Repository]
+The code base and this documentation is available on a [Github Repository](https://github.com/AbhishekBiswas76/Semester-Project)
 
 ## Algorithms
 
