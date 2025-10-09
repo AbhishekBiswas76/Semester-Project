@@ -57,7 +57,7 @@ Array is a linear data structure where all elements are arranged sequentially.
 
 A linked list is a linear data structure used for storing a sequence of elements, where each element is stored in a node that contains both the element and a pointer to the next node in the sequence.
 
-![](assets/linked list.png)
+![](assets/linkedlist.png)
 
 ### Sparse Matrix
 
