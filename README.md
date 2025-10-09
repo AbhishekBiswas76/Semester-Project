@@ -57,6 +57,8 @@ Array is a linear data structure where all elements are arranged sequentially.
 
 A linked list is a linear data structure used for storing a sequence of elements, where each element is stored in a node that contains both the element and a pointer to the next node in the sequence.
 
+![](assets/linked list.png)
+
 ### Sparse Matrix
 
 A matrix is a two-dimensional data object made of m rows and n columns, therefore having total m x n values. If most of the elements of the matrix have 0 value, then it is called a sparse matrix.
