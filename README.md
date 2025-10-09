@@ -13,6 +13,36 @@
 
 WAP in C to create the following data structure: Dancing Links
 
+#Acknowledgement
+
+Firstly, we would like to thank our family and friends, for their constant support throughout out university life.
+
+Moreover, we would like to express our sincere gratitude to the Department of Computer Science, for allowing us to apply our expertise in this assignment, and also for helping us develop the required knowledge to program using the C programming language for this project.
+
+# Introduction
+
+## Algorithm
+
+It is a step-by-step procedure to solve a problem in finite time.
+
+```mermaid
+graph LR
+i[/Input/] -->
+Algorithm -->
+o[/Output/]
+```
+
+## Complexity
+
+Run-time complexity refers to the amount of time it takes to run an algorithm. The goal of a program is to maximize the best-case scenario and minimize the worst-case scenario.
+
+The worst-case scenario is measured using order of complexity. The most common notation for representing this order of complexity is Big-Oh notation $O$.
+
+Some common orders of complexity are
+$$
+O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2 \log n) < O(n^2) < \dots < O(2^n), O(e^n)
+$$
+
 ## Data Structure
 
 It is a way of organizing and storing data in a computer so that it can be accessed and used efficiently. 
