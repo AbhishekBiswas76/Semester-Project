@@ -13,7 +13,7 @@
 
 WAP in C to create the following data structure: Dancing Links
 
-#Acknowledgement
+# Acknowledgement
 
 Firstly, we would like to thank our family and friends, for their constant support throughout out university life.
 
