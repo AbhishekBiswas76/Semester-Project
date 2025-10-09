@@ -47,40 +47,13 @@ $$
 
 It is a way of organizing and storing data in a computer so that it can be accessed and used efficiently. 
 
-### Array
+### Sparse Matrix
 
-Array is a linear data structure where all elements are arranged sequentially.
-
-![](assets/array.svg)
-
-### Pointers
-
-A pointer is a variable that stores the memory address of another variable. Instead of holding a direct value, it holds the address where the value is stored in memory. It is the backbone of low-level memory manipulation in C.
-
-### Structures
-
-In C, a structure is a user-defined data type that can be used to group items of possibly different types into a single type. The struct keyword is used to define a structure. The items in the structure are called its members and they can be of any valid data type. Applications of structures involve creating data structures Linked List and Tree.
+A matrix is a two-dimensional data object made of m rows and n columns, therefore having total m x n values. If most of the elements of the matrix have 0 value, then it is called a sparse matrix.
 
 ### Linked List
 
 A linked list is a linear data structure used for storing a sequence of elements, where each element is stored in a node that contains both the element and a pointer to the next node in the sequence.
-
-![](assets/linked_list.svg)
-
-### Tree
-
-It is a non-linear hierarchical data structure, where there is a single root node and every other node contains a parent and/or child. Linear data structures like arrays, stacks, queues, and linked list can be traversed in only one way. But a hierarchical data structure like a tree can be traversed in different ways.
-
-```mermaid
-flowchart TB
-a --> b & c
-b --> d & e
-c --> f & g
-```
-
-### Sparse Matrix
-
-A matrix is a two-dimensional data object made of m rows and n columns, therefore having total m x n values. If most of the elements of the matrix have 0 value, then it is called a sparse matrix.
 
 ### Circular Linked List
 
