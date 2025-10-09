@@ -4,7 +4,7 @@
 
 |      Roll     |        Name        |                Contributions                |
 | :-----------: | :----------------: | :-----------------------------------------: |
-|    2451033    |   Abhishek Biswas  |       Sparse Matrix                         |
+|    2451033    |   Abhishek Biswas  |                                             |
 |    2451035    |     Aman Kumar     |                                             |
 |    2451040    |    Sougata Patra   |                                             |
 |    2451049    |    Aditiya Raj     |                                             |
