@@ -75,6 +75,70 @@ A circular doubly linked list is defined as a circular linked list in which each
 
 Dancing Links is a technique to add or delete a node from a circular doubly linked list. It is particularly used to implement effective backtracking algorithms, such as Knuth's Algorithm X and the Exact Cover problem.
 
+## Program
+
+It is the implementation of algorithm in a programming language
+
+This project uses Java programming language for its implementation. Java is a programming language that is used globally to develop various application software.
+
+# Project
+
+## Repository
+
+The code base and this documentation is available on a [Github Repository]
+
+## Algorithms
+
+### Sparse Matrix
+
+```c
+// using Array
+#include<stdio.h>
+
+int main()
+{
+    // Assume 4x5 sparse matrix
+    int sparseMatrix[4][5] =
+    {
+        {0 , 0 , 3 , 0 , 4 },
+        {0 , 0 , 5 , 7 , 0 },
+        {0 , 0 , 0 , 0 , 0 },
+        {0 , 2 , 6 , 0 , 0 }
+    };
+
+    int size = 0;
+    for (int i = 0; i < 4; i++)
+        for (int j = 0; j < 5; j++)
+            if (sparseMatrix[i][j] != 0)
+                size++;
+
+    // number of columns in compactMatrix (size) must be
+    // equal to number of non - zero elements in
+    // sparseMatrix
+    int compactMatrix[3][size];
+
+    // Making of new matrix
+    int k = 0;
+    for (int i = 0; i < 4; i++)
+        for (int j = 0; j < 5; j++)
+            if (sparseMatrix[i][j] != 0)
+            {
+                compactMatrix[0][k] = i;
+                compactMatrix[1][k] = j;
+                compactMatrix[2][k] = sparseMatrix[i][j];
+                k++;
+            }
+
+    for (int i=0; i<3; i++)
+    {
+        for (int j=0; j<size; j++)
+            printf("%d ", compactMatrix[i][j]);
+
+        printf("\n");
+    }
+    return 0;
+}
+```
 ## Source Code
 
 ```c
