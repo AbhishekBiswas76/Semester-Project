@@ -51,29 +51,43 @@ It is a way of organizing and storing data in a computer so that it can be acces
 
 Array is a linear data structure where all elements are arranged sequentially.
 
-
+![](assets/array.png)
 
 ### Linked List
 
 A linked list is a linear data structure used for storing a sequence of elements, where each element is stored in a node that contains both the element and a pointer to the next node in the sequence.
 
-
+![](assets/ll.png)
 
 ### Sparse Matrix
 
 A matrix is a two-dimensional data object made of m rows and n columns, therefore having total m x n values. If most of the elements of the matrix have 0 value, then it is called a sparse matrix.
 
+#### Using Arrays
+
+![](assets/sma.png)
+
+#### Using Linked List
+
+![](assets/smll.png)
+
 ### Circular Linked List
 
 In Circular Singly Linked List, each node has just one pointer called the "next" pointer. The next pointer of the last node points back to the first node and this results in forming a circle. In this type of Linked list, we can only move through the list in one direction.
+
+![](assets/cll.png)
 
 ### Doubly Linked List
 
 A doubly linked list is a type of linked list in which each node contains 3 parts, a data part and two addresses, one points to the previous node and one for the next node. It differs from the singly linked list as it has an extra pointer called previous that points to the previous node, allowing the traversal in both forward and backward directions.
 
+![](assets/dll.png)
+
 ### Circular Doubly Linked List
 
 A circular doubly linked list is defined as a circular linked list in which each node has two links connecting it to the previous node and the next node.
+
+![](assets/cdll.png)
 
 ## Dancing Links
 
