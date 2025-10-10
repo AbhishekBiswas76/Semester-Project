@@ -93,6 +93,8 @@ A circular doubly linked list is defined as a circular linked list in which each
 
 Dancing Links is a technique to add or delete a node from a circular doubly linked list. It is particularly used to implement effective backtracking algorithms, such as Knuth's Algorithm X and the Exact Cover problem.
 
+![](assets/fwlm.png)
+
 ## Program
 
 It is the implementation of algorithm in a programming language.
