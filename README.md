@@ -93,13 +93,13 @@ In Circular Singly Linked List, each node has just one pointer called the "next"
 
 A doubly linked list is a type of linked list in which each node contains 3 parts, a data part and two addresses, one points to the previous node and one for the next node. It differs from the singly linked list as it has an extra pointer called previous that points to the previous node, allowing the traversal in both forward and backward directions.
 
-![](assets/dll.png)
+![](assets/dll1.png)
 
 ### Circular Doubly Linked List
 
 A circular doubly linked list is defined as a circular linked list in which each node has two links connecting it to the previous node and the next node.
 
-![](assets/cdll.png)
+![](assets/cdll1.png)
 
 ## Dancing Links
 
@@ -523,8 +523,11 @@ We have built this project from the following concepts below.
 
 - "Arrays in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c-sharp/arrays-in-c-sharp/
 - "Linked List Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
-- "Binary Search," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/complexity-analysis-of-binary-search/
-- "Sparse Matrix Representations," *GeeksforGeeks*. 
+- "Tree Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/tree-data-structure/
+- "Sparse Matrix Representations," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/sparse-matrix-representation/
+- "Introduction to Circular Linked List," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/circular-linked-list/
+- "Doubly Linked List in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c/doubly-linked-list-in-c/
+- "Introduction to Circular Doubly Linked List," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/introduction-to-circular-doubly-linked-list/
 
 
 # Thank You For Your Attention
