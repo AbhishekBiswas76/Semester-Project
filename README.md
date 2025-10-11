@@ -517,6 +517,7 @@ Using C, we were able to connect and apply the knowledge that we have learned in
 
 - [x] Array
 - [x] Linked List
+- [x] Binary Search
 - [x] Sparse Matrix (Both Array and Linked List implementations)
 - [x] Tree
 - [x] Circular Linked List
