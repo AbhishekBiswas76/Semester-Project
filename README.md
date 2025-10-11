@@ -497,6 +497,8 @@ Sudoku is a popular puzzle game where the goal is to fill a 9x9 grid with digits
 
 ### N Queen
 
+The n-queens puzzle is the problem of placing n queens on a (n × n) chessboard such that no two queens can attack each other. Note that two queens attack each other if they are placed on the same row, the same column, or the same diagonal.
+
 ![](assets/nquen.png)
 
 #### Recursive Tree Approach
