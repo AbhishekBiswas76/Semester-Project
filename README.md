@@ -597,7 +597,7 @@ Enter your choice (1-5): 5
 Exiting program.
 ```
 
-##### Empty Sudoku
+##### Empty Sudoku (Multiple Solutions, Limited to One)
 
 ```
 Sudoku Solver Using Dancing Links (Algorithm X)
@@ -699,7 +699,7 @@ The n-queens puzzle is the problem of placing n queens on a (n × n) chessboard 
 
 #### Output
 
-##### 4-Queens
+##### 4-Queens (Multiple Solutions)
 
 ```
 N-Queens Solver Using Dancing Links (Algorithm X)
@@ -746,7 +746,7 @@ Enter your choice (1-5): 5
 Exiting program.
 ```
 
-##### 3-Queens
+##### 3-Queens (No Solutions)
 
 ```
 N-Queens Solver Using Dancing Links (Algorithm X)
@@ -769,7 +769,7 @@ Enter your choice (1-5): 5
 Exiting program.
 ```
 
-##### 8-Queens
+##### 8-Queens (Larger Board)
 
 ```
 N-Queens Solver Using Dancing Links (Algorithm X)
@@ -813,7 +813,7 @@ Enter your choice (1-5): 5
 Exiting program.
 ```
 
-##### 1-Queen
+##### 1-Queen (Trivial Solution)
 
 ```
 N-Queens Solver Using Dancing Links (Algorithm X)
