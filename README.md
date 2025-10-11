@@ -38,10 +38,9 @@ Run-time complexity refers to the amount of time it takes to run an algorithm. T
 
 The worst-case scenario is measured using order of complexity. The most common notation for representing this order of complexity is Big-Oh notation $O$.
 
-Some common orders of complexity are
-$$
-O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2 \log n) < O(n^2) < \dots < O(2^n), O(e^n)
-$$
+Some common orders of complexity are:-
+
+O(1) < O(log n) < O(n) < O(n*log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
 
 ## Data Structure
 
