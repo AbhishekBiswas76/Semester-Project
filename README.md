@@ -525,7 +525,7 @@ We have built this project from the following concepts below.
 
 # References
 
-- "Complete Guide On Complexity Analysis - DSA Tutorial," *GeeksforGeeks. https://www.geeksforgeeks.org/dsa/complete-guide-on-complexity-analysis/
+- "Complete Guide On Complexity Analysis - DSA Tutorial," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/complete-guide-on-complexity-analysis/
 - "Arrays in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c-sharp/arrays-in-c-sharp/
 - "Linked List Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
 - "Tree Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/tree-data-structure/
