@@ -495,7 +495,7 @@ Exiting program.
 
 ![](assets/sudoku.png)
 
-#### Source Code
+#### Source Code: 
 
 ### N-Queens
 
@@ -505,7 +505,7 @@ Exiting program.
 
 ![](assets/expln.png)
 
-#### Source Code
+#### Source Code: https://github.com/AbhishekBiswas76/Semester-Project/blob/main/code/n-queens.c
 
 ## Conclusion
 
