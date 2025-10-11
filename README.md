@@ -40,7 +40,7 @@ The worst-case scenario is measured using order of complexity. The most common n
 
 Some common orders of complexity are:-
 
-O(1) < O(log n) < O(n) < O(n*log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
+$$O(1) < O(log n) < O(n) < O(n*log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)$$
 
 ![](assets/tc.png)
 
@@ -127,14 +127,14 @@ The code base and this documentation is available on a [Github Repository](https
 
 | Algorithm                                      | Complexity    |
 | ---------------------------------------------- | ------------- |
-| `initialize_dlx(DLX *dlx, int rows, int cols)` | 
-| `insert_node(DLX *dlx, int row, int col)`      |
-| `cover_column(Node *col)`                      |
-| `uncover_column(Node *col)`                    |
-| `search(DLX *dlx, int k)`                      |
-| `print_matrix(DLX *dlx)`                       |
-| `print_solutions(DLX *dlx)`                    |
-| `input_matrix(DLX *dlx)`                       |
+| `initialize_dlx(DLX *dlx, int rows, int cols)` | $O(n)$
+| `insert_node(DLX *dlx, int row, int col)`      | $O(n)$
+| `cover_column(Node *col)`                      | $O(n)$
+| `uncover_column(Node *col)`                    | $O(n)$
+| `search(DLX *dlx, int k)`                      | $O(1)$
+| `print_matrix(DLX *dlx)`                       | $O(1)$
+| `print_solutions(DLX *dlx)`                    | $O(1)$
+| `input_matrix(DLX *dlx)`                       | $O(n)$
 
 ## Source Code 
 
@@ -494,6 +494,8 @@ Exiting program.
 ### Sudoku
 
 ![](assets/sudoku.png)
+
+Source Code
 
 ### N-Queens
 
