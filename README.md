@@ -116,7 +116,7 @@ The code base and this documentation is available on a [Github Repository](https
 
 
 
-## Source Code
+## Dancing Links Source Code 
 
 ```c
 #include <stdio.h>
@@ -468,3 +468,24 @@ Menu:
 Enter your choice (1-5): 5
 Exiting program.
 ```
+
+## Puzzles
+
+### Sudoku
+
+![](assets/sudoku.png)
+
+### N-Queens
+
+![](assets/nquen.png)
+
+![](assets/expln.png)
+
+
+## Conclusion
+
+Using C, we were able to connect and apply the knowledge that we have learned in Data Structures and Algorithms. We understood the importance of such concepts which are then used to solve real life problems.
+
+
+
+
