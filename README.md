@@ -567,7 +567,7 @@ Exiting program.
 
 ##### Unsolvable Sudoku
 
-````
+```
 Sudoku Solver Using Dancing Links (Algorithm X)
 
 Menu:
