@@ -136,7 +136,7 @@ The code base and this documentation is available on a [Github Repository](https
 | `search(DLX *dlx, int k)`                      | $O(1)$
 | `print_matrix(DLX *dlx)`                       | $O(1)$
 | `print_solutions(DLX *dlx)`                    | $O(1)$
-| `input_matrix(DLX *dlx)`                       | $O(n)$
+| `input_matrix(DLX *dlx)`                       | $O(1)$
 
 ## Source Code 
 
