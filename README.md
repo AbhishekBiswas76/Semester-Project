@@ -2,12 +2,12 @@
 
 ## Students
 
-|      Roll     |        Name        |                Contributions                |
-| :-----------: | :----------------: | :-----------------------------------------: |
-|    2451033    |   Abhishek Biswas  |                                             |
-|    2451035    |     Aman Kumar     |                                             |
-|    2451040    |    Sougata Patra   |                                             |
-|    2451049    |    Aditiya Raj     |                                             |
+|      Roll     |        Name        |                 
+| :-----------: | :----------------: | 
+|    2451033    |   Abhishek Biswas  |                                             
+|    2451035    |     Aman Kumar     |                                             
+|    2451040    |    Sougata Patra   |                                             
+|    2451049    |    Aditiya Raj     |                                             
 
 ## Problem Statement
 
@@ -124,6 +124,17 @@ This project uses C programming language for its implementation. C is a programm
 The code base and this documentation is available on a [Github Repository](https://github.com/AbhishekBiswas76/Semester-Project)
 
 ## Algorithms
+
+| Algorithm                                      | Complexity    |
+| ---------------------------------------------- | ------------- |
+| `initialize_dlx(DLX *dlx, int rows, int cols)` | 
+| `insert_node(DLX *dlx, int row, int col)`      |
+| `cover_column(Node *col)`                      |
+| `uncover_column(Node *col)`                    |
+| `search(DLX *dlx, int k)`                      |
+| `print_matrix(DLX *dlx)`                       |
+| `print_solutions(DLX *dlx)`                    |
+| `input_matrix(DLX *dlx)`                       |
 
 ## Source Code 
 
