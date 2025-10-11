@@ -495,7 +495,7 @@ Exiting program.
 
 ![](assets/sudoku.png)
 
-Source Code
+#### Source Code
 
 ### N-Queens
 
@@ -505,6 +505,7 @@ Source Code
 
 ![](assets/expln.png)
 
+#### Source Code
 
 ## Conclusion
 
