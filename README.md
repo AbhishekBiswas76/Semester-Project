@@ -507,7 +507,7 @@ The n-queens puzzle is the problem of placing n queens on a (n × n) chessboard 
 
 #### Source Code: https://github.com/AbhishekBiswas76/Semester-Project/blob/main/code/n-queens.c
 
-## Conclusion
+# Conclusion
 
 Using C, we were able to connect and apply the knowledge that we have learned in Data Structures and Algorithms. We understood the importance of such concepts which are then used to solve real world problems.
 
