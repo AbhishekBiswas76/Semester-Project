@@ -60,11 +60,26 @@ A linked list is a linear data structure used for storing a sequence of elements
 
 ![](assets/ll.png)
 
+### Tree
+
+It is a non-linear hierarchical data structure, where there is a single root node and every other node contains a parent and/or child. Linear data structures like arrays, stacks, queues, and linked list can be traversed in only one way. But a hierarchical data structure like a tree can be traversed in different ways.
+
+```mermaid
+flowchart TB
+a --> b & c
+b --> d & e
+c --> f & g
+```
+
 ### Binary Search
 
 Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half and the correct interval to find is decided based on the searched value and the mid value of the interval.
 
 ![](assets/bs.png)
+
+Binary Search Tree is a data structure used in computer science for organizing and storing data in a sorted manner. Binary search tree follows all properties of binary tree and for every nodes, its left subtree contains values less than the node and the right subtree contains values greater than the node. This hierarchical structure allows for efficient Searching, Insertion, and Deletion operations on the data stored in the tree.
+
+
 
 ### Sparse Matrix
 
@@ -77,17 +92,6 @@ A matrix is a two-dimensional data object made of m rows and n columns, therefor
 #### Using Linked List
 
 ![](assets/smll.png)
-
-### Tree
-
-It is a non-linear hierarchical data structure, where there is a single root node and every other node contains a parent and/or child. Linear data structures like arrays, stacks, queues, and linked list can be traversed in only one way. But a hierarchical data structure like a tree can be traversed in different ways.
-
-```mermaid
-flowchart TB
-a --> b & c
-b --> d & e
-c --> f & g
-```
 
 ### Circular Linked List
 
@@ -519,14 +523,20 @@ We have built this project from the following concepts below.
 
 - [x] Array
 - [x] Linked List
+- [x] Tree
 - [x] Binary Search
 - [x] Sparse Matrix (Both Array and Linked List implementations)
-- [x] Tree
 - [x] Circular Linked List
 - [x] Doubly Linked List
 - [x] Circular Doubly Linked List
 
 # References
+
+- "Arrays in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c-sharp/arrays-in-c-sharp/
+- "Linked List Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
+- "Binary Search," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/complexity-analysis-of-binary-search/
+- "Sparse Matrix Representations," *GeeksforGeeks*. 
+
 
 # Thank You For Your Attention
 
