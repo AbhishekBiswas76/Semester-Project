@@ -697,6 +697,170 @@ The n-queens puzzle is the problem of placing n queens on a (n × n) chessboard 
 
 #### Source Code: https://github.com/AbhishekBiswas76/Semester-Project/blob/main/code/n-queens.c
 
+#### Output
+
+##### 4-Queens
+
+```
+N-Queens Solver Using Dancing Links (Algorithm X)
+
+Menu:
+1. Input board size (N)
+2. Solve N-Queens problem
+3. Display current board
+4. Display all solutions
+5. Exit
+Enter your choice (1-5): 1
+Enter board size N (1 to 20): 4
+Board size 4x4 set.
+
+Menu:
+Enter your choice (1-5): 3
+Current 4x4 Board:
+. . . .
+. . . .
+. . . .
+. . . .
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 2 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 2 solution(s) for 4x4 N-Queens:
+Solution 1:
+. Q . .
+. . . Q
+Q . . .
+. . Q .
+
+Solution 2:
+. . Q .
+Q . . .
+. . . Q
+. Q . .
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### 3-Queens
+
+```
+N-Queens Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter board size N (1 to 20): 3
+Board size 3x3 set.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 0 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 0 solution(s) for 3x3 N-Queens:
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### 8-Queens
+
+```
+N-Queens Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter board size N (1 to 20): 8
+Board size 8x8 set.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 92 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 92 solution(s) for 8x8 N-Queens:
+Solution 1:
+Q . . . . . . .
+. . . . Q . . .
+. . . . . . Q .
+. . Q . . . . .
+. . . . . . . Q
+. Q . . . . . .
+. . . Q . . . .
+. . . . . Q . .
+
+Solution 2:
+Q . . . . . . .
+. . . . . Q . .
+. . . . . . . Q
+. . Q . . . . .
+. . . . . . Q .
+. . . . Q . . .
+. Q . . . . . .
+. . . Q . . . .
+
+[... 90 more solutions ...]
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### 1-Queen
+
+```
+N-Queens Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter board size N (1 to 20): 1
+Board size 1x1 set.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 1 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 1 solution(s) for 1x1 N-Queens:
+Solution 1:
+Q
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### Invalid Input
+
+```
+N-Queens Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter board size N (1 to 20): 21
+Invalid board size! Must be between 1 and 20.
+
+Menu:
+Enter your choice (1-5): 3
+No board size set.
+
+Menu:
+Enter your choice (1-5): 2
+Please set board size first (Option 1).
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
 # Conclusion
 
 Using C, we were able to connect and apply the knowledge that we have learned in Data Structures and Algorithms. We understood the importance of such concepts which are then used to solve real world problems.
