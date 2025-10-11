@@ -495,7 +495,7 @@ Exiting program.
 
 ![](assets/sudoku.png)
 
-#### Source Code: 
+#### Source Code: https://github.com/AbhishekBiswas76/Semester-Project/blob/main/code/sudoku.c
 
 ### N-Queens
 
