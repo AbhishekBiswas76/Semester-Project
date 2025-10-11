@@ -469,7 +469,7 @@ Enter your choice (1-5): 5
 Exiting program.
 ```
 
-## Puzzles
+## Application Puzzles
 
 ### Sudoku
 
@@ -478,6 +478,8 @@ Exiting program.
 ### N-Queens
 
 ![](assets/nquen.png)
+
+#### Recursive Tree Approach
 
 ![](assets/expln.png)
 
