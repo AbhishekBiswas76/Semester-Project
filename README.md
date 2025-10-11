@@ -76,10 +76,6 @@ A matrix is a two-dimensional data object made of m rows and n columns, therefor
 
 It is a non-linear hierarchical data structure, where there is a single root node and every other node contains a parent and/or child. Linear data structures like arrays, stacks, queues, and linked list can be traversed in only one way. But a hierarchical data structure like a tree can be traversed in different ways.
 
-
-
-
-
 ```mermaid
 flowchart TB
 a --> b & c
@@ -510,6 +506,20 @@ Exiting program.
 ## Conclusion
 
 Using C, we were able to connect and apply the knowledge that we have learned in Data Structures and Algorithms. We understood the importance of such concepts which are then used to solve real life problems.
+
+## DSA
+
+- [x] Array
+- [x] Linked List
+- [x] Sparse Matrix (Both Array and Linked List implementations)
+- [x] Tree
+- [x] Circular Linked List
+- [x] Doubly Linked List
+- [x] Circular Doubly Linked List
+
+# References
+
+
 
 
 
