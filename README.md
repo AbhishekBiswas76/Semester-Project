@@ -495,6 +495,196 @@ Sudoku is a popular puzzle game where the goal is to fill a 9x9 grid with digits
 
 #### Source Code: https://github.com/AbhishekBiswas76/Semester-Project/blob/main/code/sudoku.c
 
+#### Output
+
+##### Valid Sudoku with One Solution
+
+```
+Sudoku Solver Using Dancing Links (Algorithm X)
+
+Menu:
+1. Input a new Sudoku puzzle
+2. Solve the Sudoku puzzle
+3. Display current Sudoku grid
+4. Display solution(s)
+5. Exit
+Enter your choice (1-5): 1
+Enter the 9x9 Sudoku grid (0 for empty cells, 1-9 for filled cells):
+5 3 0 0 7 0 0 0 0
+6 0 0 1 9 5 0 0 0
+0 9 8 0 0 0 0 6 0
+8 0 0 0 6 0 0 0 3
+4 0 0 8 0 3 0 0 1
+7 0 0 0 2 0 0 0 6
+0 6 0 0 0 0 2 8 0
+0 0 0 4 1 9 0 0 5
+0 0 0 0 8 0 0 7 9
+Sudoku input complete.
+
+Menu:
+Enter your choice (1-5): 3
+Current Sudoku Grid:
+---------------------
+| 5 3 0 | 0 7 0 | 0 0 0 |
+| 6 0 0 | 1 9 5 | 0 0 0 |
+| 0 9 8 | 0 0 0 | 0 6 0 |
+---------------------
+| 8 0 0 | 0 6 0 | 0 0 3 |
+| 4 0 0 | 8 0 3 | 0 0 1 |
+| 7 0 0 | 0 2 0 | 0 0 6 |
+---------------------
+| 0 6 0 | 0 0 0 | 2 8 0 |
+| 0 0 0 | 4 1 9 | 0 0 5 |
+| 0 0 0 | 0 8 0 | 0 7 9 |
+---------------------
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 1 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 1 solution(s):
+Solution 1:
+---------------------
+| 5 3 4 | 6 7 8 | 9 1 2 |
+| 6 7 2 | 1 9 5 | 3 4 8 |
+| 1 9 8 | 3 4 2 | 5 6 7 |
+---------------------
+| 8 5 9 | 7 6 1 | 4 2 3 |
+| 4 2 6 | 8 5 3 | 7 9 1 |
+| 7 1 3 | 9 2 4 | 8 5 6 |
+---------------------
+| 9 6 1 | 5 3 7 | 2 8 4 |
+| 2 8 7 | 4 1 9 | 6 3 5 |
+| 3 4 5 | 2 8 6 | 1 7 9 |
+---------------------
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### Unsolvable Sudoku
+
+````
+Sudoku Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter the 9x9 Sudoku grid (0 for empty cells, 1-9 for filled cells):
+5 5 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+Sudoku input complete.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 0 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+No solutions found.
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### Empty Sudoku
+
+```
+Sudoku Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter the 9x9 Sudoku grid (0 for empty cells, 1-9 for filled cells):
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+Sudoku input complete.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 1 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 1 solution(s):
+Solution 1:
+---------------------
+| 1 2 3 | 4 5 6 | 7 8 9 |
+| 4 5 6 | 7 8 9 | 1 2 3 |
+| 7 8 9 | 1 2 3 | 4 5 6 |
+---------------------
+| 2 1 4 | 5 6 7 | 8 9 3 |
+| 5 6 7 | 8 9 3 | 2 1 4 |
+| 8 9 3 | 2 1 4 | 5 6 7 |
+---------------------
+| 3 4 5 | 6 7 8 | 9 1 2 |
+| 6 7 8 | 9 1 2 | 3 4 5 |
+| 9 1 2 | 3 4 5 | 6 7 8 |
+---------------------
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+##### Invalid Input
+
+```
+Sudoku Solver Using Dancing Links (Algorithm X)
+
+Menu:
+Enter your choice (1-5): 1
+Enter the 9x9 Sudoku grid (0 for empty cells, 1-9 for filled cells):
+10 0 0 0 0 0 0 0 0
+Invalid input! Use 0-9 only.
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+Sudoku input complete.
+
+Menu:
+Enter your choice (1-5): 3
+Current Sudoku Grid:
+---------------------
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+---------------------
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+---------------------
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+---------------------
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
 ### N Queen
 
 The n-queens puzzle is the problem of placing n queens on a (n × n) chessboard such that no two queens can attack each other. Note that two queens attack each other if they are placed on the same row, the same column, or the same diagonal.
