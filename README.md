@@ -2,7 +2,7 @@
 
 ## Students
 
-|      Roll     |        Name        |                 
+| Roll Number   |        Name        |                 
 | :-----------: | :----------------: | 
 |    2451033    |   Abhishek Biswas  |                                             
 |    2451035    |     Aman Kumar     |                                             
