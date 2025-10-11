@@ -60,6 +60,12 @@ A linked list is a linear data structure used for storing a sequence of elements
 
 ![](assets/ll.png)
 
+### Binary Search
+
+Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half and the correct interval to find is decided based on the searched value and the mid value of the interval.
+
+![](assets/bs.png)
+
 ### Sparse Matrix
 
 A matrix is a two-dimensional data object made of m rows and n columns, therefore having total m x n values. If most of the elements of the matrix have 0 value, then it is called a sparse matrix.
