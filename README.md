@@ -355,11 +355,11 @@ int main() {
 
 ## Output
 
-Example 1: Simple Exact Cover Problem
-
-Dancing Links Algorithm for Exact Cover Problem
+### Simple Exact Cover Problem
 
 ```
+Dancing Links Algorithm for Exact Cover Problem
+
 Menu:
 1. Input a new matrix
 2. Solve the Exact Cover problem
@@ -390,6 +390,79 @@ Menu:
 Enter your choice (1-5): 4
 Found 1 solution(s):
 Solution 1: Rows selected = 0 2
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+### No Solution
+
+```
+Dancing Links Algorithm for Exact Cover Problem
+
+Menu:
+Enter your choice (1-5): 1
+Enter number of rows (max 100): 2
+Enter number of columns (max 100): 3
+Enter the matrix (2 x 3, 0s and 1s only):
+1 0 0
+0 1 0
+Matrix input complete.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 0 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 0 solution(s):
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+### Multiple Solutions
+
+```
+Dancing Links Algorithm for Exact Cover Problem
+
+Menu:
+Enter your choice (1-5): 1
+Enter number of rows (max 100): 3
+Enter number of columns (max 100): 3
+Enter the matrix (3 x 3, 0s and 1s only):
+1 0 1
+0 1 1
+1 1 0
+Matrix input complete.
+
+Menu:
+Enter your choice (1-5): 2
+Solving complete. Found 2 solution(s).
+
+Menu:
+Enter your choice (1-5): 4
+Found 2 solution(s):
+Solution 1: Rows selected = 0
+Solution 2: Rows selected = 1 2
+
+Menu:
+Enter your choice (1-5): 5
+Exiting program.
+```
+
+### Invalid Input
+
+```
+Dancing Links Algorithm for Exact Cover Problem
+
+Menu:
+Enter your choice (1-5): 1
+Enter number of rows (max 100): 101
+Enter number of columns (max 100): 4
+Invalid dimensions!
 
 Menu:
 Enter your choice (1-5): 5
