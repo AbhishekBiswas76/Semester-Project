@@ -71,16 +71,6 @@ b --> d & e
 c --> f & g
 ```
 
-### Binary Search
-
-Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half and the correct interval to find is decided based on the searched value and the mid value of the interval.
-
-![](assets/bs.png)
-
-Binary Search Tree is a data structure used in computer science for organizing and storing data in a sorted manner. Binary search tree follows all properties of binary tree and for every nodes, its left subtree contains values less than the node and the right subtree contains values greater than the node. This hierarchical structure allows for efficient Searching, Insertion, and Deletion operations on the data stored in the tree.
-
-
-
 ### Sparse Matrix
 
 A matrix is a two-dimensional data object made of m rows and n columns, therefore having total m x n values. If most of the elements of the matrix have 0 value, then it is called a sparse matrix.
@@ -133,14 +123,14 @@ The code base and this documentation is available on a [Github Repository](https
 
 | Algorithm                                      | Complexity    |
 | ---------------------------------------------- | ------------- |
-| `initialize_dlx(DLX *dlx, int rows, int cols)` | $O(n)$
-| `insert_node(DLX *dlx, int row, int col)`      | $O(n)$
-| `cover_column(Node *col)`                      | $O(n)$
-| `uncover_column(Node *col)`                    | $O(n)$
-| `search(DLX *dlx, int k)`                      | $O(1)$
-| `print_matrix(DLX *dlx)`                       | $O(1)$
-| `print_solutions(DLX *dlx)`                    | $O(1)$
-| `input_matrix(DLX *dlx)`                       | $O(1)$
+| `initialize_dlx(DLX *dlx, int rows, int cols)` | $O(n)$        |
+| `insert_node(DLX *dlx, int row, int col)`      | $O(n)$        |
+| `cover_column(Node *col)`                      | $O(n)$        |
+| `uncover_column(Node *col)`                    | $O(n)$        |
+| `search(DLX *dlx, int k)`                      | $O(1)$        |
+| `print_matrix(DLX *dlx)`                       | $O(1)$        |
+| `print_solutions(DLX *dlx)`                    | $O(1)$        |
+| `input_matrix(DLX *dlx)`                       | $O(1)$        |
 
 ## Source Code 
 
@@ -524,7 +514,6 @@ We have built this project from the following concepts below.
 - [x] Array
 - [x] Linked List
 - [x] Tree
-- [x] Binary Search
 - [x] Sparse Matrix (Both Array and Linked List implementations)
 - [x] Circular Linked List
 - [x] Doubly Linked List
