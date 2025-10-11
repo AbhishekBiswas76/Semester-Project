@@ -489,11 +489,13 @@ Exiting program.
 
 ### Sudoku
 
+Sudoku is a popular puzzle game where the goal is to fill a 9x9 grid with digits so that each column, each row, and each of the nine 3x3 subgrids contain all of the digits from 1 to 9. In this article, we will learn how we can solve Sudoku puzzles using C programming language.
+
 ![](assets/sudoku.png)
 
 #### Source Code: https://github.com/AbhishekBiswas76/Semester-Project/blob/main/code/sudoku.c
 
-### N-Queens
+### N Queen
 
 ![](assets/nquen.png)
 
@@ -521,6 +523,7 @@ We have built this project from the following concepts below.
 
 # References
 
+- "Complete Guide On Complexity Analysis - DSA Tutorial," *GeeksforGeeks. https://www.geeksforgeeks.org/dsa/complete-guide-on-complexity-analysis/
 - "Arrays in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c-sharp/arrays-in-c-sharp/
 - "Linked List Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
 - "Tree Data Structure," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/tree-data-structure/
@@ -528,7 +531,9 @@ We have built this project from the following concepts below.
 - "Introduction to Circular Linked List," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/circular-linked-list/
 - "Doubly Linked List in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c/doubly-linked-list-in-c/
 - "Introduction to Circular Doubly Linked List," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/introduction-to-circular-doubly-linked-list/
-
+- "Implementation of Exact Cover Problem and Algorithm X using DLX," *GeeksforGeeks*. https://www.geeksforgeeks.org/cpp/implementation-of-exact-cover-problem-and-algorithm-x-using-dlx/
+- "Sudoku in C," *GeeksforGeeks*. https://www.geeksforgeeks.org/c/sudoku-in-c/
+- "N Queen Problem," *GeeksforGeeks*. https://www.geeksforgeeks.org/dsa/n-queen-problem-backtracking-3/
 
 # Thank You For Your Attention
 
