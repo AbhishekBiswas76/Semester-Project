@@ -505,7 +505,7 @@ Exiting program.
 
 ## Conclusion
 
-Using C, we were able to connect and apply the knowledge that we have learned in Data Structures and Algorithms. We understood the importance of such concepts which are then used to solve real life problems.
+Using C, we were able to connect and apply the knowledge that we have learned in Data Structures and Algorithms. We understood the importance of such concepts which are then used to solve real world problems.
 
 ## DSA
 
