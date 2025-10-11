@@ -72,6 +72,21 @@ A matrix is a two-dimensional data object made of m rows and n columns, therefor
 
 ![](assets/smll.png)
 
+### Tree
+
+It is a non-linear hierarchical data structure, where there is a single root node and every other node contains a parent and/or child. Linear data structures like arrays, stacks, queues, and linked list can be traversed in only one way. But a hierarchical data structure like a tree can be traversed in different ways.
+
+
+
+
+
+```mermaid
+flowchart TB
+a --> b & c
+b --> d & e
+c --> f & g
+```
+
 ### Circular Linked List
 
 In Circular Singly Linked List, each node has just one pointer called the "next" pointer. The next pointer of the last node points back to the first node and this results in forming a circle. In this type of Linked list, we can only move through the list in one direction.
