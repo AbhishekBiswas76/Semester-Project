@@ -359,6 +359,7 @@ Example 1: Simple Exact Cover Problem
 
 Dancing Links Algorithm for Exact Cover Problem
 
+```
 Menu:
 1. Input a new matrix
 2. Solve the Exact Cover problem
@@ -393,3 +394,4 @@ Solution 1: Rows selected = 0 2
 Menu:
 Enter your choice (1-5): 5
 Exiting program.
+```
