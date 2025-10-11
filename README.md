@@ -92,7 +92,7 @@ A circular doubly linked list is defined as a circular linked list in which each
 
 ## Dancing Links
 
-Dancing Links is a technique to add or delete a node from a circular doubly linked list. It is particularly used to implement effective backtracking algorithms, such as Knuth's Algorithm X and the Exact Cover problem.
+Dancing Links is a technique for implementing backtracking algorithms, like Algorithm X, that efficiently solve problems such as Sudoku or Exact Cover by using sparse matrix represented with circular doubly linked lists. 
 
 ![](assets/fwlm.png)
 
@@ -100,7 +100,7 @@ Dancing Links is a technique to add or delete a node from a circular doubly link
 
 It is the implementation of algorithm in a programming language.
 
-This project uses Java programming language for its implementation. Java is a programming language that is used globally to develop various application software.
+This project uses C programming language for its implementation. C is a programming language that is used globally to develop various application software.
 
 # Project
 
@@ -110,13 +110,7 @@ The code base and this documentation is available on a [Github Repository](https
 
 ## Algorithms
 
-
-
-
-
-
-
-## Dancing Links Source Code 
+## Source Code 
 
 ```c
 #include <stdio.h>
